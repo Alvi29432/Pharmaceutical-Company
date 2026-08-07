@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.accountant.AccountantProductionCostController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Production Cost" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Total Estimated Cost" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Batches" style="-fx-font-weight: bold;"/>
+            <Label fx:id="batchLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadProductionCost"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Override Unit Cost (per medicine)" style="-fx-font-weight: bold;"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Medicine:"/>
+        <ComboBox fx:id="medicineBox" prefWidth="240"/>
+        <Label text="Unit Cost:"/>
+        <TextField fx:id="unitCostField" prefWidth="120" promptText="0.00"/>
+        <Button text="Save Unit Cost" onAction="#handleSaveUnitCost" style="-fx-background-color: #2980b9; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Production Cost Breakdown" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="costTable" prefHeight="340">
+        <columns>
+            <TableColumn fx:id="batchCol"     text="Batch ID"   prefWidth="140"/>
+            <TableColumn fx:id="medicineCol"  text="Medicine"   prefWidth="240"/>
+            <TableColumn fx:id="qtyCol"       text="Quantity"   prefWidth="100"/>
+            <TableColumn fx:id="unitCol"      text="Unit Cost"  prefWidth="120"/>
+            <TableColumn fx:id="totalCol"     text="Total Cost" prefWidth="140"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

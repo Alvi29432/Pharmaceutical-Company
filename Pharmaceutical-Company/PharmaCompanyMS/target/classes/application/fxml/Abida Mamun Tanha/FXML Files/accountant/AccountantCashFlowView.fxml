@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.accountant.AccountantCashFlowController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Cash Flow" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Cash Inflows" style="-fx-font-weight: bold;"/>
+            <Label fx:id="inflowLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Cash Outflows" style="-fx-font-weight: bold;"/>
+            <Label fx:id="outflowLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Net Cash Flow" style="-fx-font-weight: bold;"/>
+            <Label fx:id="netLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadCashFlow"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Cash Flow Timeline" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="cashTable" prefHeight="360">
+        <columns>
+            <TableColumn fx:id="dateCol"    text="Date"     prefWidth="160"/>
+            <TableColumn fx:id="inCol"      text="Inflow"   prefWidth="160"/>
+            <TableColumn fx:id="outCol"     text="Outflow"  prefWidth="160"/>
+            <TableColumn fx:id="netCol"     text="Net"      prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

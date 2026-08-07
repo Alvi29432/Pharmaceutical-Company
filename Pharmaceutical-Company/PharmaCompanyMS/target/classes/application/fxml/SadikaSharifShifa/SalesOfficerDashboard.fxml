@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="553.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cse213_group36.pharmaceutical.SadikaSharifShifa.SalesOfficerDashboardController">
+   <children>
+      <Text layoutX="241.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sales Officer">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="56.0" layoutY="95.0" mnemonicParsing="false" onAction="#orderOnAction" text="order" />
+      <Button layoutX="337.0" layoutY="95.0" mnemonicParsing="false" onAction="#medicineOnAction" text="medicine" />
+      <Button layoutX="56.0" layoutY="167.0" mnemonicParsing="false" onAction="#customerOnAction" text="customer" />
+      <Button layoutX="347.0" layoutY="167.0" mnemonicParsing="false" onAction="#inventoryOnAction" text="inventory" />
+      <Button layoutX="68.0" layoutY="252.0" mnemonicParsing="false" onAction="#invoicerOnAction" text="invoice" />
+      <Button layoutX="68.0" layoutY="310.0" mnemonicParsing="false" onAction="#prescriptionOnAction" text="prescription" />
+      <Button layoutX="355.0" layoutY="240.0" mnemonicParsing="false" onAction="#salesReportOnAction" text="sales report" />
+      <Button layoutX="365.0" layoutY="298.0" mnemonicParsing="false" onAction="#refundOnAction" text="refund" />
+      <Button layoutX="232.0" layoutY="442.0" mnemonicParsing="false" onAction="#logoutOnAction" text="logout" />
+   </children>
+</AnchorPane>

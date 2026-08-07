@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.productionmanager.PMIncidentManagementController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Incident Management" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Total Incidents" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadIncidents"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Log New Incident" style="-fx-font-weight: bold;"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Description:"/>
+    </HBox>
+    <TextArea fx:id="descArea" prefRowCount="3" wrapText="true" promptText="Describe the incident..."/>
+
+    <HBox spacing="10">
+        <Button text="Log Incident" onAction="#handleLog" style="-fx-background-color: #c0392b; -fx-text-fill: white;"/>
+        <Button text="Clear" onAction="#handleClear"/>
+    </HBox>
+
+    <Separator/>
+
+    <TableView fx:id="incidentTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="idCol"      text="Incident ID" prefWidth="160"/>
+            <TableColumn fx:id="descCol"    text="Description" prefWidth="600"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.productionmanager.PMProductionPlanningController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Production Planning" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Batches" style="-fx-font-weight: bold;"/>
+            <Label fx:id="batchCountLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Schedules" style="-fx-font-weight: bold;"/>
+            <Label fx:id="scheduleCountLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadAll"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Create Production Batch" style="-fx-font-weight: bold;"/>
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+            <ColumnConstraints minWidth="260" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Medicine:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="medicineBox" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="320"/>
+
+        <Label text="Quantity:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Spinner fx:id="qtySpinner" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="160"/>
+    </GridPane>
+    <HBox spacing="10">
+        <Button text="Add Batch" onAction="#handleAddBatch" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Create Production Schedule" style="-fx-font-weight: bold;"/>
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+            <ColumnConstraints minWidth="260" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Batch:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="batchBox" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="320"/>
+
+        <Label text="Date (YYYY-MM-DD):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="dateField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="2026-08-01"/>
+    </GridPane>
+    <HBox spacing="10">
+        <Button text="Add Schedule" onAction="#handleAddSchedule" style="-fx-background-color: #2980b9; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="All Batches" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="batchTable" prefHeight="160">
+        <columns>
+            <TableColumn fx:id="bIdCol"        text="Batch ID"   prefWidth="120"/>
+            <TableColumn fx:id="bMedicineCol"  text="Medicine"   prefWidth="260"/>
+            <TableColumn fx:id="bQtyCol"       text="Quantity"   prefWidth="100"/>
+            <TableColumn fx:id="bStatusCol"    text="Status"     prefWidth="140"/>
+        </columns>
+    </TableView>
+
+    <Label text="All Schedules" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="scheduleTable" prefHeight="160">
+        <columns>
+            <TableColumn fx:id="sIdCol"    text="Schedule ID" prefWidth="120"/>
+            <TableColumn fx:id="sBatchCol" text="Batch ID"    prefWidth="160"/>
+            <TableColumn fx:id="sDateCol"  text="Date"        prefWidth="200"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

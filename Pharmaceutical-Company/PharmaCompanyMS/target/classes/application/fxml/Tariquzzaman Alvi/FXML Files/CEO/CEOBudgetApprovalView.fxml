@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.chiefexecutiveofficer.CEOBudgetApprovalController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Budget Approval" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Filter:"/>
+        <ComboBox fx:id="statusFilter" prefWidth="140"/>
+        <Button text="Refresh" onAction="#loadBudgets"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Approve" onAction="#handleApprove"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="Reject" onAction="#handleReject"
+                style="-fx-background-color: #c0392b; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TableView fx:id="budgetTable" prefHeight="380">
+        <columns>
+            <TableColumn fx:id="idCol"   text="ID"         prefWidth="80"/>
+            <TableColumn fx:id="deptCol" text="Department" prefWidth="140"/>
+            <TableColumn fx:id="limitCol" text="Limit"      prefWidth="120"/>
+            <TableColumn fx:id="justCol" text="Justification" prefWidth="280"/>
+            <TableColumn fx:id="statCol" text="Status"     prefWidth="100"/>
+            <TableColumn fx:id="dateCol" text="Decision Date" prefWidth="140"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

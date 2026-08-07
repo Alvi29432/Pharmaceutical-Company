@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.accountant.AccountantFinancialReportsController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Financial Reports" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <Button text="Refresh" onAction="#loadReports"/>
+    </HBox>
+
+    <Separator/>
+
+    <GridPane hgap="20" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="160"/>
+            <ColumnConstraints minWidth="220"/>
+            <ColumnConstraints halignment="RIGHT" minWidth="160"/>
+            <ColumnConstraints minWidth="220"/>
+        </columnConstraints>
+
+        <Label text="Total Revenue:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="revenueLabel" GridPane.rowIndex="0" GridPane.columnIndex="1" text="0.00"/>
+
+        <Label text="Total Expenses:" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;"/>
+        <Label fx:id="expenseLabel" GridPane.rowIndex="0" GridPane.columnIndex="3" text="0.00"/>
+
+        <Label text="Net Profit:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="profitLabel" GridPane.rowIndex="1" GridPane.columnIndex="1" text="0.00"/>
+
+        <Label text="Profit Margin:" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: bold;"/>
+        <Label fx:id="marginLabel" GridPane.rowIndex="1" GridPane.columnIndex="3" text="0%"/>
+
+        <Label text="Payables:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="payablesLabel" GridPane.rowIndex="2" GridPane.columnIndex="1" text="0.00"/>
+
+        <Label text="Receivables:" GridPane.rowIndex="2" GridPane.columnIndex="2" style="-fx-font-weight: bold;"/>
+        <Label fx:id="receivablesLabel" GridPane.rowIndex="2" GridPane.columnIndex="3" text="0.00"/>
+
+        <Label text="Open Compliance:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="complianceLabel" GridPane.rowIndex="3" GridPane.columnIndex="1" text="0"/>
+    </GridPane>
+
+    <Separator/>
+
+    <Label text="Combined Financial Records" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="reportTable" prefHeight="320">
+        <columns>
+            <TableColumn fx:id="idCol"      text="Record ID" prefWidth="140"/>
+            <TableColumn fx:id="typeCol"    text="Type"      prefWidth="160"/>
+            <TableColumn fx:id="amountCol"  text="Amount"    prefWidth="160"/>
+            <TableColumn fx:id="dateCol"    text="Date"      prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

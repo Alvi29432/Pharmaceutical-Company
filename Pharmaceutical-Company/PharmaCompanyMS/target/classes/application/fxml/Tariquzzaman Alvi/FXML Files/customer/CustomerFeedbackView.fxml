@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.customer.CustomerFeedbackController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Send Feedback" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Message:"/>
+    </HBox>
+    <TextArea fx:id="messageArea" prefRowCount="4" promptText="Tell us what you think..." wrapText="true"/>
+
+    <HBox spacing="10">
+        <Button text="Submit Feedback" onAction="#handleSubmit" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="Refresh List" onAction="#loadFeedback"/>
+        <Button text="Clear" onAction="#handleClear"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="My Feedback History" style="-fx-font-weight: bold;"/>
+
+    <TableView fx:id="feedbackTable" prefHeight="280">
+        <columns>
+            <TableColumn fx:id="idCol"      text="ID"      prefWidth="100"/>
+            <TableColumn fx:id="custCol"    text="Customer" prefWidth="160"/>
+            <TableColumn fx:id="msgCol"     text="Message"  prefWidth="500"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

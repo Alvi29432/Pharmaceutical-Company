@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.controllers.productionmanager.ProductionManagerDashboardController"
+            prefWidth="1000" prefHeight="640">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #2980b9; -fx-padding: 10;">
+            <Label fx:id="welcomeLabel" text="Welcome, Production Manager"
+                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="6" style="-fx-background-color: #ecf0f1; -fx-padding: 12;">
+            <Label text="Production Modules" style="-fx-font-weight: bold;"/>
+            <Button text="Production Planning"  prefWidth="190" onAction="#showPlanning"/>
+            <Button text="Production Progress"  prefWidth="190" onAction="#showProgress"/>
+            <Button text="Inventory Monitoring" prefWidth="190" onAction="#showInventory"/>
+            <Button text="Production Status"    prefWidth="190" onAction="#showStatus"/>
+            <Button text="Quality Inspection"   prefWidth="190" onAction="#showQuality"/>
+            <Button text="Reports"              prefWidth="190" onAction="#showReports"/>
+            <Button text="Staff Shift"          prefWidth="190" onAction="#showStaffShift"/>
+            <Button text="Incident Management"  prefWidth="190" onAction="#showIncidents"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-padding: 10;">
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Production Manager Dashboard" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+                <Label text="Pick a module on the left to begin."/>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.customer.CustomerTrackOrderController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Track Orders" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <Label text="Filter Status:"/>
+        <ComboBox fx:id="statusFilterBox" prefWidth="160"/>
+        <Button text="Apply" onAction="#handleApplyFilter"/>
+        <Button text="Refresh" onAction="#loadOrders"/>
+    </HBox>
+
+    <TableView fx:id="orderTable" prefHeight="380">
+        <columns>
+            <TableColumn fx:id="orderIdCol"     text="Order ID"    prefWidth="120"/>
+            <TableColumn fx:id="medicineCol"    text="Medicine ID" prefWidth="140"/>
+            <TableColumn fx:id="qtyCol"         text="Qty"         prefWidth="80"/>
+            <TableColumn fx:id="statusCol"      text="Status"      prefWidth="140"/>
+            <TableColumn fx:id="totalCol"       text="Total ($)"   prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button text="Mark as Shipped"  onAction="#handleAdvanceShipped"  style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+        <Button text="Mark as Delivered" onAction="#handleAdvanceDelivered" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

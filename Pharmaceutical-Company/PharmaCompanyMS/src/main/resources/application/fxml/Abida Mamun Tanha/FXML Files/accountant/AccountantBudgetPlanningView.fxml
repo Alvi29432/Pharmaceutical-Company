@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.accountant.AccountantBudgetPlanningController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Budget Planning" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Total Requested" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Pending" style="-fx-font-weight: bold;"/>
+            <Label fx:id="pendingLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Approved" style="-fx-font-weight: bold;"/>
+            <Label fx:id="approvedLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadBudgets"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Submit New Budget Request" style="-fx-font-weight: bold;"/>
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+            <ColumnConstraints minWidth="260" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Department:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="deptField" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="e.g. Production"/>
+
+        <Label text="Amount:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="amountField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="0.00"/>
+
+        <Label text="Justification:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="justField" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="Why this budget is needed"/>
+    </GridPane>
+    <HBox spacing="10">
+        <Button text="Submit Request" onAction="#handleSubmit" style="-fx-background-color: #2980b9; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Budget Requests" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="budgetTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="idCol"       text="Budget ID"    prefWidth="140"/>
+            <TableColumn fx:id="deptCol"     text="Department"   prefWidth="180"/>
+            <TableColumn fx:id="limitCol"    text="Amount"       prefWidth="140"/>
+            <TableColumn fx:id="justCol"     text="Justification" prefWidth="320"/>
+            <TableColumn fx:id="statusCol"   text="Status"       prefWidth="140"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

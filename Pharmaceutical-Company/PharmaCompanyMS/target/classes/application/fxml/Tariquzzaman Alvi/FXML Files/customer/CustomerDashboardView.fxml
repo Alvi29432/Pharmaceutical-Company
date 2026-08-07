@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.controllers.customer.CustomerDashboardController"
+            prefWidth="1000" prefHeight="640">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #16a085; -fx-padding: 10;">
+            <Label fx:id="welcomeLabel" text="Welcome, Customer"
+                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="6" style="-fx-background-color: #ecf0f1; -fx-padding: 12;">
+            <Label text="Customer Modules" style="-fx-font-weight: bold;"/>
+            <Button text="Profile"            prefWidth="180" onAction="#showProfile"/>
+            <Button text="Create Account"     prefWidth="180" onAction="#showCreateAccount"/>
+            <Button text="Medicine Search"    prefWidth="180" onAction="#showMedicineSearch"/>
+            <Button text="Place Order"        prefWidth="180" onAction="#showPlaceOrder"/>
+            <Button text="Track Order"        prefWidth="180" onAction="#showTrackOrder"/>
+            <Button text="Purchase History"   prefWidth="180" onAction="#showPurchaseHistory"/>
+            <Button text="Invoices"           prefWidth="180" onAction="#showInvoices"/>
+            <Button text="Reviews"            prefWidth="180" onAction="#showReviews"/>
+            <Button text="Feedback"           prefWidth="180" onAction="#showFeedback"/>
+            <Button text="Support Tickets"    prefWidth="180" onAction="#showSupportTickets"/>
+            <Button text="Notifications"      prefWidth="180" onAction="#showNotifications"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-padding: 10;">
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Customer Dashboard" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+                <Label text="Pick a module on the left to begin."/>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.chiefexecutiveofficer.CEOReportsController"
+      spacing="12" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Reports" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Refresh" onAction="#loadAll"/>
+        <Button text="Export Audit Report (TXT)" onAction="#exportAuditReport"/>
+        <Button text="Export Financial Summary (TXT)" onAction="#exportFinancialReport"/>
+    </HBox>
+
+    <Label text="Financial Summary" style="-fx-font-weight: bold;"/>
+    <HBox spacing="20">
+        <VBox>
+            <Label text="Total Revenue" style="-fx-font-weight: bold;"/>
+            <Label fx:id="revenueLabel" text="0.00" style="-fx-font-size: 20px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Total Expenses" style="-fx-font-weight: bold;"/>
+            <Label fx:id="expenseLabel" text="0.00" style="-fx-font-size: 20px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Net" style="-fx-font-weight: bold;"/>
+            <Label fx:id="netLabel" text="0.00" style="-fx-font-size: 20px;"/>
+        </VBox>
+    </HBox>
+
+    <Label text="Financial Records" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="financialTable" prefHeight="180">
+        <columns>
+            <TableColumn fx:id="frIdCol"   text="ID"    prefWidth="100"/>
+            <TableColumn fx:id="frTypeCol" text="Type"  prefWidth="120"/>
+            <TableColumn fx:id="frAmtCol"  text="Amount" prefWidth="140"/>
+        </columns>
+    </TableView>
+
+    <Label text="Audit Report — Incidents Log" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="auditTable" prefHeight="180">
+        <columns>
+            <TableColumn fx:id="incIdCol"   text="Incident ID" prefWidth="120"/>
+            <TableColumn fx:id="incDescCol" text="Description" prefWidth="500"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

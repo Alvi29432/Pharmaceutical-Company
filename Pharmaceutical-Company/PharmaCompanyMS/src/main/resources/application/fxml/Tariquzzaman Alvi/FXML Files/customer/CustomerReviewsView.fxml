@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.customer.CustomerReviewsController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Submit a Review" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+            <ColumnConstraints minWidth="280" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Medicine:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="medicineBox" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="320"/>
+
+        <Label text="Rating (1-5):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="ratingBox" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="120"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button text="Submit Review" onAction="#handleSubmit" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="Refresh List" onAction="#loadReviews"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="All Reviews" style="-fx-font-weight: bold;"/>
+
+    <TableView fx:id="reviewTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="idCol"        text="Review ID" prefWidth="120"/>
+            <TableColumn fx:id="medicineCol"  text="Medicine"  prefWidth="280"/>
+            <TableColumn fx:id="ratingCol"    text="Rating"    prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

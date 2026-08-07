@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.accountant.AccountantFinancialDashboardController"
+      spacing="10" style="-fx-padding: 10;"
+      prefWidth="900" prefHeight="560" minWidth="900" maxWidth="900" minHeight="560" maxHeight="560">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Financial Dashboard" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <Button text="Refresh" onAction="#loadDashboard"/>
+    </HBox>
+
+    <Separator/>
+
+    <GridPane hgap="15" vgap="20">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" minWidth="160" prefWidth="200"/>
+            <ColumnConstraints halignment="CENTER" minWidth="160" prefWidth="200"/>
+            <ColumnConstraints halignment="CENTER" minWidth="160" prefWidth="200"/>
+            <ColumnConstraints halignment="CENTER" minWidth="160" prefWidth="200"/>
+        </columnConstraints>
+
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="CENTER" spacing="6"
+              style="-fx-background-color: #27ae60; -fx-padding: 15; -fx-background-radius: 4;"
+              maxWidth="220" prefWidth="200">
+            <Label text="Total Revenue" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Label fx:id="revenueLabel" text="0.00" style="-fx-text-fill: white; -fx-font-size: 22px;"/>
+        </VBox>
+
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER" spacing="6"
+              style="-fx-background-color: #e67e22; -fx-padding: 15; -fx-background-radius: 4;"
+              maxWidth="220" prefWidth="200">
+            <Label text="Total Expenses" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Label fx:id="expenseLabel" text="0.00" style="-fx-text-fill: white; -fx-font-size: 22px;"/>
+        </VBox>
+
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="2" alignment="CENTER" spacing="6"
+              style="-fx-background-color: #2980b9; -fx-padding: 15; -fx-background-radius: 4;"
+              maxWidth="220" prefWidth="200">
+            <Label text="Net Profit" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Label fx:id="profitLabel" text="0.00" style="-fx-text-fill: white; -fx-font-size: 22px;"/>
+        </VBox>
+
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="3" alignment="CENTER" spacing="6"
+              style="-fx-background-color: #8e44ad; -fx-padding: 15; -fx-background-radius: 4;"
+              maxWidth="220" prefWidth="200">
+            <Label text="Open Receivables" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Label fx:id="receivableLabel" text="0.00" style="-fx-text-fill: white; -fx-font-size: 22px;"/>
+        </VBox>
+    </GridPane>
+
+    <Separator/>
+
+    <GridPane hgap="25" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="180"/>
+            <ColumnConstraints minWidth="220"/>
+            <ColumnConstraints halignment="RIGHT" minWidth="180"/>
+            <ColumnConstraints minWidth="220"/>
+        </columnConstraints>
+
+        <Label text="Open Payables:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="payableLabel" GridPane.rowIndex="0" GridPane.columnIndex="1" text="0.00"/>
+
+        <Label text="Open Compliance:" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;"/>
+        <Label fx:id="complianceLabel" GridPane.rowIndex="0" GridPane.columnIndex="3" text="0"/>
+
+        <Label text="Pending Budgets:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;"/>
+        <Label fx:id="budgetLabel" GridPane.rowIndex="1" GridPane.columnIndex="1" text="0"/>
+
+        <Label text="Estimated Production Cost:" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: bold;"/>
+        <Label fx:id="productionCostLabel" GridPane.rowIndex="1" GridPane.columnIndex="3" text="0.00"/>
+    </GridPane>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

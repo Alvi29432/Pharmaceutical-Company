@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.accountant.AccountantExpensesController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Expenses" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Total Expenses" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Records" style="-fx-font-weight: bold;"/>
+            <Label fx:id="countLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadExpenses"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Add Expense" style="-fx-font-weight: bold;"/>
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+            <ColumnConstraints minWidth="260" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Category:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="categoryBox" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200"/>
+
+        <Label text="Description:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="descField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="What was purchased"/>
+
+        <Label text="Amount:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="amountField" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="0.00"/>
+
+        <Label text="Date (YYYY-MM-DD):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="dateField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="2026-07-30"/>
+    </GridPane>
+    <HBox spacing="10">
+        <Button text="Add Expense" onAction="#handleAdd" style="-fx-background-color: #e67e22; -fx-text-fill: white;"/>
+        <Button text="Delete Selected" onAction="#handleDelete" style="-fx-background-color: #c0392b; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Separator/>
+
+    <TableView fx:id="expenseTable" prefHeight="320">
+        <columns>
+            <TableColumn fx:id="idCol"       text="Expense ID"  prefWidth="140"/>
+            <TableColumn fx:id="categoryCol" text="Category"    prefWidth="160"/>
+            <TableColumn fx:id="descCol"     text="Description" prefWidth="260"/>
+            <TableColumn fx:id="amountCol"   text="Amount"      prefWidth="120"/>
+            <TableColumn fx:id="dateCol"     text="Date"        prefWidth="140"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

@@ -1,0 +1,5 @@
+AUDIT REPORT
+============
+IN-001: Minor spill in packaging area â€” cleaned up.
+IN-002: Temperature alarm in cold storage â€” resolved.
+IN-003: Late delivery from supplier B â€” logged with procurement.

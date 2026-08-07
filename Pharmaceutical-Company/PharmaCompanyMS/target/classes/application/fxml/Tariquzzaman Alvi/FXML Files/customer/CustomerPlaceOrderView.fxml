@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.customer.CustomerPlaceOrderController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Place Order" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+            <ColumnConstraints minWidth="280" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Medicine:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="medicineBox" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="320"/>
+
+        <Label text="Available Stock:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label fx:id="stockLabel" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Unit Price:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Label fx:id="priceLabel" text="-" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Quantity:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <Spinner fx:id="qtySpinner" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="120"/>
+
+        <Label text="Estimated Total:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <Label fx:id="totalLabel" text="-" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button text="Place Order" onAction="#handlePlaceOrder" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="Recalculate Total" onAction="#handleRecalculate"/>
+    </HBox>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.chiefexecutiveofficer.CEOProductionController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Production Monitoring" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Refresh" onAction="#loadAll"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Mark In Progress" onAction="#handleStart"
+                style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+        <Button text="Mark Completed"   onAction="#handleComplete"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Label text="Production Batches" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="batchTable" prefHeight="220">
+        <columns>
+            <TableColumn fx:id="batchIdCol"   text="Batch ID"   prefWidth="120"/>
+            <TableColumn fx:id="batchMedCol"  text="Medicine ID" prefWidth="140"/>
+            <TableColumn fx:id="batchQtyCol"  text="Quantity"   prefWidth="100"/>
+            <TableColumn fx:id="batchStatCol" text="Status"     prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <Label text="Production Schedules" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="scheduleTable" prefHeight="180">
+        <columns>
+            <TableColumn fx:id="schedIdCol"   text="Schedule ID" prefWidth="120"/>
+            <TableColumn fx:id="schedBatchCol" text="Batch ID"   prefWidth="120"/>
+            <TableColumn fx:id="schedDateCol"  text="Date"       prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

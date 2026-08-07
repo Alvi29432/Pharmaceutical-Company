@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.controllers.LoginController"
+            prefWidth="420" prefHeight="340">
+
+    <VBox spacing="14" alignment="CENTER"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding>
+            <Insets top="30" right="30" bottom="30" left="30"/>
+        </padding>
+
+        <Label text="Pharmaceutical Company MS"
+               style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <Label text="Please sign in to continue"
+               style="-fx-text-fill: #555555;"/>
+
+        <TextField fx:id="usernameField" promptText="Username" maxWidth="260"/>
+        <PasswordField fx:id="passwordField" promptText="Password" maxWidth="260"/>
+
+        <Button text="Login" onAction="#handleLogin" defaultButton="true"
+                prefWidth="120"/>
+    </VBox>
+
+</AnchorPane>

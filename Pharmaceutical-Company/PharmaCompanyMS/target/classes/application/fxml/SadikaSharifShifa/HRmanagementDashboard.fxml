@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="568.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cse213_group36.pharmaceutical.SadikaSharifShifa.HRmanagementDashboardController">
+   <children>
+      <Text layoutX="213.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HR MANAGEMENT" wrappingWidth="189.9453125">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Button layoutX="60.0" layoutY="91.0" mnemonicParsing="false" onAction="#addEmployeeOnAction" prefHeight="25.0" prefWidth="127.0" text="Employee " />
+      <Button layoutX="378.0" layoutY="91.0" mnemonicParsing="false" onAction="#employeeRegistrationOnAction" prefHeight="25.0" prefWidth="127.0" text="Registration" />
+      <Button layoutX="66.0" layoutY="168.0" mnemonicParsing="false" onAction="#generatePayrollOnAction" prefHeight="25.0" prefWidth="127.0" text="Payroll" />
+      <Button layoutX="378.0" layoutY="168.0" mnemonicParsing="false" onAction="#approvelLeaveOnAction" prefHeight="25.0" prefWidth="127.0" text="Leave Request" />
+      <Button layoutX="66.0" layoutY="259.0" mnemonicParsing="false" onAction="#manageAttendanceOnAction" prefHeight="25.0" prefWidth="127.0" text="Attendance" />
+      <Button layoutX="386.0" layoutY="253.0" mnemonicParsing="false" onAction="#processResignationOnAction" prefHeight="25.0" prefWidth="127.0" text="Resignation" />
+      <Button layoutX="66.0" layoutY="324.0" mnemonicParsing="false" onAction="#OrganizeTrainingOnAction" prefHeight="25.0" prefWidth="127.0" text="Training " />
+      <Button layoutX="386.0" layoutY="324.0" mnemonicParsing="false" onAction="#promoteEmployeeOnAction" prefHeight="25.0" prefWidth="127.0" text="Promotion" />
+      <Button layoutX="273.0" layoutY="387.0" mnemonicParsing="false" onAction="#logoutButton" text="logout" />
+   </children>
+</AnchorPane>

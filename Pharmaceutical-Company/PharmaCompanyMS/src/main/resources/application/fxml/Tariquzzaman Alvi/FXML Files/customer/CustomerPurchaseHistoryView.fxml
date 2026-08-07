@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.customer.CustomerPurchaseHistoryController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Purchase History" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Total Orders" style="-fx-font-weight: bold;"/>
+            <Label fx:id="orderCountLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Total Spent ($)" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalSpentLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadHistory"/>
+    </HBox>
+
+    <Separator/>
+
+    <TableView fx:id="historyTable" prefHeight="380">
+        <columns>
+            <TableColumn fx:id="orderIdCol"     text="Order ID"    prefWidth="120"/>
+            <TableColumn fx:id="medicineCol"    text="Medicine ID" prefWidth="140"/>
+            <TableColumn fx:id="qtyCol"         text="Qty"         prefWidth="80"/>
+            <TableColumn fx:id="statusCol"      text="Status"      prefWidth="140"/>
+            <TableColumn fx:id="totalCol"       text="Total ($)"   prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

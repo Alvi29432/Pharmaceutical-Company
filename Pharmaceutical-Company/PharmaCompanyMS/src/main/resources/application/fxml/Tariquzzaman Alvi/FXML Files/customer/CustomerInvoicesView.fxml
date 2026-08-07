@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.customer.CustomerInvoicesController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="My Invoices" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Total Invoices" style="-fx-font-weight: bold;"/>
+            <Label fx:id="invoiceCountLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Total Billed ($)" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalBilledLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadInvoices"/>
+    </HBox>
+
+    <Separator/>
+
+    <TableView fx:id="invoiceTable" prefHeight="380">
+        <columns>
+            <TableColumn fx:id="invoiceIdCol" text="Invoice ID" prefWidth="140"/>
+            <TableColumn fx:id="orderIdCol"   text="Order ID"   prefWidth="140"/>
+            <TableColumn fx:id="amountCol"    text="Amount ($)" prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

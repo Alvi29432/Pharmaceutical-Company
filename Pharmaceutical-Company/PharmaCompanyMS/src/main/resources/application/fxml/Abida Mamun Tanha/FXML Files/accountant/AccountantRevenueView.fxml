@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.accountant.AccountantRevenueController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Revenue" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Total Revenue" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalLabel" text="0.00" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Records" style="-fx-font-weight: bold;"/>
+            <Label fx:id="countLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadRevenue"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Add Revenue Entry" style="-fx-font-weight: bold;"/>
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+            <ColumnConstraints minWidth="260" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Source:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="sourceField" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="Customer / Channel"/>
+
+        <Label text="Amount:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="amountField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="0.00"/>
+
+        <Label text="Date (YYYY-MM-DD):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="dateField" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="2026-07-30"/>
+    </GridPane>
+    <HBox spacing="10">
+        <Button text="Add Revenue" onAction="#handleAdd" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="Delete Selected" onAction="#handleDelete" style="-fx-background-color: #c0392b; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Separator/>
+
+    <TableView fx:id="revenueTable" prefHeight="340">
+        <columns>
+            <TableColumn fx:id="idCol"      text="Revenue ID" prefWidth="140"/>
+            <TableColumn fx:id="sourceCol"  text="Source"     prefWidth="220"/>
+            <TableColumn fx:id="amountCol"  text="Amount"     prefWidth="140"/>
+            <TableColumn fx:id="dateCol"    text="Date"       prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

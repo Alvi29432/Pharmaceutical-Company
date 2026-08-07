@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.productionmanager.PMProductionProgressController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Production Progress" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Average Completion" style="-fx-font-weight: bold;"/>
+            <Label fx:id="avgPercentLabel" text="0%" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Total Completed Units" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalUnitsLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadProgress"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Update Progress" style="-fx-font-weight: bold;"/>
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+            <ColumnConstraints minWidth="260" hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Batch:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="batchBox" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="320"/>
+
+        <Label text="Completed Units:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Spinner fx:id="unitsSpinner" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="160"/>
+
+        <Label text="Percent (0-100):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Spinner fx:id="percentSpinner" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="160"/>
+    </GridPane>
+    <HBox spacing="10">
+        <Button text="Save Progress" onAction="#handleSave" style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="Mark In Progress" onAction="#handleMarkInProgress" style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+        <Button text="Mark Completed" onAction="#handleMarkCompleted" style="-fx-background-color: #2980b9; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Separator/>
+
+    <TableView fx:id="progressTable" prefHeight="320">
+        <columns>
+            <TableColumn fx:id="pBatchCol"  text="Batch ID"        prefWidth="160"/>
+            <TableColumn fx:id="pUnitsCol"  text="Completed Units" prefWidth="180"/>
+            <TableColumn fx:id="pPercentCol" text="Progress"        prefWidth="160"/>
+            <TableColumn fx:id="pStatusCol" text="Status"           prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.chiefexecutiveofficer.CEOCustomerSatisfactionController"
+      spacing="10" style="-fx-padding: 10;">
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+    <Label text="Customer Satisfaction" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="25" alignment="CENTER_LEFT">
+        <VBox>
+            <Label text="Average Rating" style="-fx-font-weight: bold;"/>
+            <Label fx:id="avgRatingLabel" text="0.00 / 5" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Total Reviews" style="-fx-font-weight: bold;"/>
+            <Label fx:id="reviewsLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Feedback Messages" style="-fx-font-weight: bold;"/>
+            <Label fx:id="feedbackLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <Button text="Refresh" onAction="#loadAll"/>
+    </HBox>
+
+    <Separator/>
+
+    <Label text="Per-Medicine Average Rating" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="avgTable" prefHeight="160">
+        <columns>
+            <TableColumn fx:id="avgMedCol" text="Medicine ID" prefWidth="160"/>
+            <TableColumn fx:id="avgValCol" text="Average Rating" prefWidth="180"/>
+        </columns>
+    </TableView>
+
+    <Label text="Customer Feedback" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="feedbackTable" prefHeight="180">
+        <columns>
+            <TableColumn fx:id="fbIdCol"   text="ID"         prefWidth="80"/>
+            <TableColumn fx:id="fbCustCol" text="Customer ID" prefWidth="120"/>
+            <TableColumn fx:id="fbMsgCol"  text="Message"    prefWidth="500"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="infoLabel" text=""/>
+</VBox>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cse213_group36.pharmaceutical.SadikaSharifShifa.AttendanceViewController">
+   <children>
+      <Label layoutX="37.0" layoutY="50.0" text="date: " />
+      <DatePicker fx:id="dateDatePicker" layoutX="67.0" layoutY="46.0" />
+      <CheckBox fx:id="checkAttCheckBox" layoutX="37.0" layoutY="93.0" mnemonicParsing="false" text="checkAttendance" />
+      <Label layoutX="37.0" layoutY="157.0" prefHeight="17.0" prefWidth="49.0" text="Status" />
+      <Text layoutX="264.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendance" wrappingWidth="91.34326171875">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Label fx:id="statusLabel" layoutX="98.0" layoutY="140.0" prefHeight="51.0" prefWidth="238.0" text="Label" />
+      <Button layoutX="25.0" layoutY="220.0" mnemonicParsing="false" onAction="#backOnAction" text="back" />
+   </children>
+</AnchorPane>

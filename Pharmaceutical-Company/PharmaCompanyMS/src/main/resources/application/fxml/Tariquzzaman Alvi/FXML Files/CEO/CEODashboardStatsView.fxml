@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="application.controllers.chiefexecutiveofficer.CEODashboardStatsController"
+      spacing="15" style="-fx-padding: 15;">
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Back to Dashboard" onAction="#goBackToDashboard"/>
+        <Button text="Logout" onAction="#handleLogout"/>
+    </HBox>
+
+    <Label text="Dashboard Statistics" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <!-- KPI grid -->
+    <GridPane hgap="12" vgap="12">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="25"/>
+        </columnConstraints>
+
+        <VBox style="-fx-background-color: #3498db; -fx-padding: 15;" GridPane.columnIndex="0">
+            <Label text="Medicines" style="-fx-text-fill: white;"/>
+            <Label fx:id="medicinesCountLabel" text="0"
+                   style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;"/>
+        </VBox>
+        <VBox style="-fx-background-color: #27ae60; -fx-padding: 15;" GridPane.columnIndex="1">
+            <Label text="Inventory Items" style="-fx-text-fill: white;"/>
+            <Label fx:id="inventoryCountLabel" text="0"
+                   style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;"/>
+        </VBox>
+        <VBox style="-fx-background-color: #e67e22; -fx-padding: 15;" GridPane.columnIndex="2">
+            <Label text="Production Batches" style="-fx-text-fill: white;"/>
+            <Label fx:id="batchesCountLabel" text="0"
+                   style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;"/>
+        </VBox>
+        <VBox style="-fx-background-color: #9b59b6; -fx-padding: 15;" GridPane.columnIndex="3">
+            <Label text="Employees Tracked" style="-fx-text-fill: white;"/>
+            <Label fx:id="employeesCountLabel" text="0"
+                   style="-fx-text-fill: white; -fx-font-size: 26px; -fx-font-weight: bold;"/>
+        </VBox>
+    </GridPane>
+
+    <Separator/>
+
+    <!-- Computed metrics -->
+    <HBox spacing="20">
+        <VBox>
+            <Label text="Pending Policies" style="-fx-font-weight: bold;"/>
+            <Label fx:id="pendingPoliciesLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Pending Budgets" style="-fx-font-weight: bold;"/>
+            <Label fx:id="pendingBudgetsLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Avg Review Rating" style="-fx-font-weight: bold;"/>
+            <Label fx:id="avgRatingLabel" text="0.0 / 5" style="-fx-font-size: 22px;"/>
+        </VBox>
+        <VBox>
+            <Label text="Low-Stock Items" style="-fx-font-weight: bold;"/>
+            <Label fx:id="lowStockLabel" text="0" style="-fx-font-size: 22px;"/>
+        </VBox>
+    </HBox>
+
+    <Button text="Refresh" onAction="#handleRefresh" maxWidth="120"/>
+</VBox>
